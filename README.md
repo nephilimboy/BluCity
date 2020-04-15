@@ -2,11 +2,11 @@
 [![Dependency Status](https://david-dm.org/akveo/ngx-admin/status.svg)](https://david-dm.org/akveo/ng2-admin)
 
 
-# Drebin Web Version 
+# Smart City Lidar Data Visualization (AI is nOT Included)
 
 ### What's included:
 
-- Simple SVM Implementation
+
 - Python Django
 - Angular 7
 
