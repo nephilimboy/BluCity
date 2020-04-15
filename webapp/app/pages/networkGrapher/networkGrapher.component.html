@@ -1,0 +1,79 @@
+<!-- <svg width="960" height="600" style="border: 1px solid white"></svg> -->
+<!-- <svg #chart width="100%" height="100%" style="border: 1px solid white"></svg> -->
+
+
+<div class="row" style="height:100%;">
+     <div class="col-xxxl-8 col-xxl-8 col-lg-8 col-md-9">
+         <div class="d3-chart" #chart style="height: 100%"></div>
+    </div>
+
+
+
+    <div class="col-xxxl-4 col-xxl-4 col-lg-4 col-md-3">
+        <nb-card>
+            <nb-tabset>
+                <nb-tab tabTitle="Dev Usage">
+
+                    <div class="container">
+                        <nb-card-header>
+                            <div class="row">
+                                <div class="col-4">
+                                    <h4 style="margin-top: 3%">New SRC Code</h4>
+                                </div>
+                                <div class="col-1 offset-5">
+                                    <a name="create_diag" id="create_diag" class="btn btn-success btn-demo " ><i
+                                            class="ion-plus-round" (click)="parsSrc()"></i></a>
+                                </div>
+                            </div>
+                        </nb-card-header>
+
+                        <hr/>
+                         <!-- <textarea nbInput fullWidth shape="round" name="src"
+                              placeholder="Src Input" style="height: 500px; margin-bottom: 5px" [(ngModel)]="src"></textarea>-->
+                        <ngx-codemirror
+                                [(ngModel)]="src"
+                                [options]="{
+                                lineNumbers: true,
+                                theme: 'material',
+                                mode: 'markdown'
+                              }"
+                        ></ngx-codemirror>
+                    </div>
+                    <!-- <textarea nbInput fullWidth shape="round" name="jasonInput"
+                              placeholder="Json Input" style="height: 500px; width: 85%"></textarea> -->
+
+                    <!-- <div class="row">
+                        <app-networkGrapher-ramSpinner id="cpu_spinner_graph" [chartValue]="72"></app-networkGrapher-ramSpinner>
+                    </div> -->
+                </nb-tab>
+                <nb-tab tabTitle="Parameters">
+                    <div class="container">
+                        <nb-card-body>
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Parameter 1</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                           placeholder="Parameter1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Parameter 2</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1"
+                                           placeholder="Parameter2">
+                                </div>
+                                <div class="form-group">
+                                    <nb-checkbox>Some Check</nb-checkbox>
+                                </div>
+                                <button type="submit" class="btn btn-info">Submit</button>
+                            </form>
+                        </nb-card-body>
+                    </div>
+                </nb-tab>
+            </nb-tabset>
+        </nb-card>
+
+    </div>
+
+
+</div>
+
+

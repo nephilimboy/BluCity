@@ -1,0 +1,72 @@
+<nb-card>
+    <nb-tabset>
+
+        <nb-tab tabTitle="Log Parsers">
+            <div class="container">
+                <nb-card-header>
+                    <div class="row">
+                        <div class="col-3">
+                            <h4 style="margin-top: 3%">Log Parsers</h4>
+                        </div>
+                        <div class="col-1 offset-8">
+                            <a class="btn btn-success btn-demo " (click)="createNewLogParser()"><i
+                                    class="ion-plus-round"></i></a>
+                        </div>
+                    </div>
+                </nb-card-header>
+
+                <nb-card-body>
+                    <ng2-smart-table [settings]="logParser_table_settings" [source]="sourceLogParser" (delete)="onDeleteLogParser($event)" (edit)="onEditLogParser($event)">
+                    </ng2-smart-table>
+                </nb-card-body>
+            </div>
+        </nb-tab>
+
+        <nb-tab tabTitle="Custom Pattern">
+
+            <div class="container">
+                <nb-card-header>
+                    <div class="row">
+                        <div class="col-3">
+                            <h4 style="margin-top: 3%">Custom Pattern</h4>
+                        </div>
+                        <div class="col-1 offset-8">
+                            <a class="btn btn-success btn-demo " (click)="createNewCustomPattern()"><i
+                                    class="ion-plus-round"></i></a>
+                        </div>
+                    </div>
+                </nb-card-header>
+
+                <nb-card-body>
+                    <ng2-smart-table [settings]="customPatter_table_settings" [source]="sourceCustomPattern" (delete)="onDeleteCustomPattern($event)" (edit)="onEditCustomPattern($event)">
+                    </ng2-smart-table>
+                </nb-card-body>
+            </div>
+        </nb-tab>
+
+
+        <nb-tab tabTitle="Jason Parser">
+            <div class="container">
+                <nb-card-header>
+                    <div class="row">
+                        <div class="col-3">
+                            <h4 style="margin-top: 3%">Jason Parser</h4>
+                        </div>
+                        <div class="col-1 offset-8">
+                            <a class="btn btn-success btn-demo " (click)="createNewJasonParser()"><i
+                                    class="ion-plus-round"></i></a>
+                        </div>
+                    </div>
+                </nb-card-header>
+
+                <nb-card-body>
+                    <ng2-smart-table [settings]="jasonParser_table_settings" [source]="sourceJasonParser" (delete)="onDeleteJasonParser($event)" (edit)="onEditJasonParser($event)">
+                    </ng2-smart-table>
+                </nb-card-body>
+            </div>
+        </nb-tab>
+
+    </nb-tabset>
+
+
+</nb-card>

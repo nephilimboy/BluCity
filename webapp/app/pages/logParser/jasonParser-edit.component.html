@@ -1,0 +1,52 @@
+<nb-card style="width: 1017px;height: 800px;">
+    <nb-card-header>Log Parser</nb-card-header>
+    <nb-card-body>
+
+        <div class="container">
+            <nb-card-body>
+
+                <div class="row">
+                    <label for="inputName" class="col-1 col-form-label">Name</label>
+                    <div class="col-5">
+                        <input type="text" name="name" [(ngModel)]="jasonParser.name" class="form-control" id="logParserName"
+                               placeholder="Parser Name">
+                    </div>
+
+                </div>
+                <br/>
+                <hr/>
+                <div class="row">
+                    <div class="col-5">
+                            <textarea nbInput fullWidth shape="round" name="jasonInput" [(ngModel)]="jasonParser.jason"
+                                      placeholder="Json Input" style="height: 600px;"></textarea>
+                    </div>
+                    <div class="col-1">
+                        <a class="btn btn-success btn-demo " (click)="createJson()"
+                           style="margin: 0;position: absolute;top: 50%;-ms-transform: translateY(-50%);transform: translateY(-50%);"><i
+                                class="fas fa-angle-double-right"></i></a>
+                    </div>
+
+                    <div class="col-6">
+                        <!-- <div #container></div>-->
+                        <div class="json_viewer_div"  style="max-height: 600px; max-width:410px; overflow-y: auto; overflow-x: auto" >
+                            <div #container></div>
+                        </div>
+                    </div>
+                </div>
+
+            </nb-card-body>
+        </div>
+
+
+    </nb-card-body>
+    <nb-card-footer style="padding: 0 1.25rem 1.25rem 0;display: flex;flex-wrap: wrap;">
+        <div style="margin: 1.25rem 0 0 1.25rem;">
+            <button class="btn btn-demo btn-success " (click)="save()" >Save</button>
+        </div>
+        <div style="margin: 1.25rem 0 0 1.25rem;">
+            <button class="btn btn-demo btn-danger " (click)="dismiss()" >Cancel</button>
+        </div>
+
+        <!-- <button nbButton hero status="primary" (click)="dismiss()">Dismiss Dialog</button> -->
+    </nb-card-footer>
+</nb-card>

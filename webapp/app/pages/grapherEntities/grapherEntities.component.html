@@ -1,0 +1,18 @@
+<nb-card>
+    <nb-card-header>
+        <div class="row">
+            <div class="col-3">
+                <h4 style="margin-top: 3%">Grapher Entities</h4>
+            </div>
+            <div class="col-1 offset-8">
+                <a class="btn btn-success btn-demo " (click)="createNewGrapherEntities()"><i
+                        class="ion-plus-round"></i></a>
+            </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body>
+        <ng2-smart-table [settings]="grapherEntities_table_settings" [source]="sourceGrapherEntities" (delete)="onDeleteGrapherEntities($event)" (edit)="onEditGrapherEntities($event)">
+        </ng2-smart-table>
+    </nb-card-body>
+
+</nb-card>

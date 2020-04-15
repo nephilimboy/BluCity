@@ -1,0 +1,153 @@
+<nb-card style="width: 1017px;height: 669px;">
+    <nb-card-header>Log Parser</nb-card-header>
+    <nb-card-body>
+
+        <div class="container">
+            <nb-card-body>
+
+                <div class="row">
+                    <label for="inputName" class="col-1 col-form-label">Name</label>
+                    <div class="col-5">
+                        <input type="text" class="form-control" id="logParserName" [(ngModel)]=logParser.name
+                               placeholder="Parser Name">
+                    </div>
+                    <div class="col-6">
+                        <a class="btn btn-success btn-demo " (click)="addNewRow()"><i class="ion-plus-round"
+                                                                                      style="color: #f1eefc;"></i></a>
+                    </div>
+                </div>
+                <br/>
+                <hr/>
+                <form [formGroup]="logParserRows" style="height:300px;overflow-y:auto">
+                    <div formArrayName="itemRows">
+
+                        <div *ngFor="let itemrow of logParserRows.controls.itemRows.controls; let i=index"
+                                style="width: 90% !important; padding-left: 6% !important;"
+                                [formGroupName]="i">
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Parser Type</label>
+                                        <select class="form-control"
+                                                formControlName="itemParserType" (change)="this.finalOutputHandler()">
+                                            <option value="pattern" selected>Pattern</option>
+                                            <option value="static">Static</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-7" *ngIf="itemrow.value.itemParserType == 'static'">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Static Text</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1"
+                                               formControlName="itemStaticText" (input)="finalOutputHandler()"
+                                               placeholder="Static Text">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-2" *ngIf="itemrow.value.itemParserType != 'static'">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Name</label>
+                                        <input type="text" class="form-control" formControlName="itemName"
+                                               id="exampleInputEmail1" (input)="finalOutputHandler()"
+                                               placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-2" *ngIf="itemrow.value.itemParserType != 'static'" style="font-size: 11px;">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Pattern Type</label>
+                                        <select #selectTypeOfPattern
+                                                class="form-control" (change)="this.finalOutputHandler()"
+                                                formControlName="itemPatternType">
+                                            <option value="custom" selected>Custom</option>
+                                            <option value="WORD">WORD</option>
+                                            <option value="NUMBER">NUMBER</option>
+                                            <option value="BASE10NUM">BASE10NUM</option>
+                                            <option value="IP">IP</option>
+                                            <option value="HOSTNAME">HOSTNAME</option>
+                                            <option value="URIPATH">URIPATH</option>
+                                            <option value="DATE">DATE</option>
+                                            <option value="TIMESTAMP_ISO8601">TIMESTAMP_ISO8601</option>
+                                            <option value="COMMONAPACHELOG">COMMONAPACHELOG</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3" *ngIf="itemrow.value.itemParserType != 'static'">
+                                    <div class="form-group" *ngIf="itemrow.value.itemPatternType == 'custom'">
+                                        <label for="exampleInputPassword1">Custom Pattern</label>
+                                        <!--<input type="text" class="form-control" id="exampleInputPassword1"
+                                               formControlName="itemCustomPattern" (input)="finalOutputHandler()"
+                                               placeholder="Custom Pattern">-->
+                                        <select class="form-control" (change)="this.finalOutputHandler()"
+                                                formControlName="itemCustomPattern">
+                                            <option *ngFor="let customptr of customPattern" [ngValue]="customptr.name">{{ customptr.name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">&nbsp;</label>
+                                        <a class="btn btn-hero-info btn-demo " (click)="moveUp(i)" ><i
+                                                class="fas fa-arrow-up"
+                                                style="color: #f1eefc;"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">&nbsp;</label>
+                                        <a class="btn btn-hero-info btn-demo " (click)="moveDown(i)" ><i
+                                                class="fas fa-arrow-down"
+                                                style="color: #f1eefc;"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">&nbsp;</label>
+                                        <a class="btn btn-hero-danger btn-demo " (click)="deleteRow(i)" ><i
+                                                class="ion-close-round"
+                                                style="color: #f1eefc;"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+                <br/>
+                <hr/>
+                <br/>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="logParserOutput"> Final Output</label>
+                            <textarea rows="5" nbInput fullWidth shape="round" name="pattern" readonly [(ngModel)]="logParser.pattern"
+                                      placeholder="Text Area"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- <div class="form-group">
+                    <nb-checkbox>Some Check</nb-checkbox>
+                </div>
+                <button type="submit" class="btn btn-info">Submit</button>
+                -->
+
+            </nb-card-body>
+        </div>
+
+
+    </nb-card-body>
+    <nb-card-footer style="padding: 0 1.25rem 1.25rem 0;display: flex;flex-wrap: wrap;">
+        <div style="margin: 1.25rem 0 0 1.25rem;">
+            <button class="btn btn-demo btn-success " (click)="save()" >Save</button>
+        </div>
+        <div style="margin: 1.25rem 0 0 1.25rem;">
+            <button class="btn btn-demo btn-danger " (click)="dismiss()" >Cancel</button>
+        </div>
+
+        <!-- <button nbButton hero status="primary" (click)="dismiss()">Dismiss Dialog</button> -->
+    </nb-card-footer>
+</nb-card>

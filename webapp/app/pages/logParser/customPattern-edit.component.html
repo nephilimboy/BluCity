@@ -1,0 +1,34 @@
+<nb-card >
+    <nb-card-header>Custom Pattern</nb-card-header>
+    <nb-card-body>
+
+        <form>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="text" name="name" required class="form-control" [(ngModel)]="customPattern.name"
+                               placeholder="Name" style="text-transform:uppercase">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Custom Pattern</label>
+                        <input type="text" class="form-control" required name="pattern"
+                               id="exampleInputPassword1" [(ngModel)]="customPattern.pattern"
+                               placeholder="Custom Pattern">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </nb-card-body>
+    <nb-card-footer style="padding: 0 1.25rem 1.25rem 0;display: flex;flex-wrap: wrap;">
+        <div style="margin: 1.25rem 0 0 1.25rem;">
+            <button class="btn btn-demo btn-success " (click)="save()" >Save</button>
+        </div>
+        <div style="margin: 1.25rem 0 0 1.25rem;">
+            <button class="btn btn-demo btn-danger " (click)="dismiss()" >Cancel</button>
+        </div>
+    </nb-card-footer>
+</nb-card>

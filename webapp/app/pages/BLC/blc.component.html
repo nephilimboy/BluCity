@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col-lg-2">
+        <nb-card>
+            <nb-card-header>Traffic Light</nb-card-header>
+            <nb-card-body>
+                <span>  #1 </span>
+                <br/>
+                <div class="container" id="container2">
+                    <div class="light"  [class.light-visible] = "this.cL1[0]"  id="red1"></div>
+                    <div class="light" [class.light-visible] = "this.cL1[1]"  id="yellow1"></div>
+                    <div class="light"  [class.light-visible] = "this.cL1[2]"  id="green1"></div>
+                </div>
+                <span>  #2 </span>
+                <br/>
+                <div class="container" id="container2">
+                    <div class="light" [class.light-visible] = "this.cL2[0]"  id="red2"></div>
+                    <div class="light" [class.light-visible] = "this.cL2[1]"  id="yellow2"></div>
+                    <div class="light" [class.light-visible] = "this.cL2[2]"  id="green2"></div>
+                </div>
+                <span>  #3 </span>
+                <br/>
+                <div class="container" id="container2">
+                    <div class="light" [class.light-visible] = "this.cL3[0]"  id="red3"></div>
+                    <div class="light" [class.light-visible] = "this.cL3[1]"  id="yellow3"></div>
+                    <div class="light"  [class.light-visible] = "this.cL3[2]"  id="green3"></div>
+                </div>
+
+            </nb-card-body>
+        </nb-card>
+        <nb-card>
+            <nb-card-header>Pedestrian Light</nb-card-header>
+            <nb-card-body>
+                <br/>
+                <span>  #1 </span>
+                <br/>
+                <div class="container" id="container2">
+                    <div class="light" [class.light-visible] = "this.pL1[0]"   id="red4"></div>
+                    <div class="light" [class.light-visible] = "this.pL1[1]"  id="green4"></div>
+                </div>
+                <span>  #2 </span>
+                <br/>
+                <div class="container" id="container2">
+                    <div class="light" [class.light-visible] = "this.pL2[0]"   id="red5"></div>
+                    <div class="light" [class.light-visible] = "this.pL2[1]"  id="green5"></div>
+                </div>
+                <span>  #3 </span>
+                <br/>
+                <div class="container" id="container2">
+                    <div class="light" [class.light-visible] = "this.pL3[0]"   id="red6"></div>
+                    <div class="light"  [class.light-visible] = "this.pL3[1]"  id="green6"></div>
+                </div>
+                <span>  #4 </span>
+                <br/>
+                <div class="container" id="container2">
+                    <div class="light"  [class.light-visible] = "this.pL4[0]"   id="red7"></div>
+                    <div class="light"  [class.light-visible] = "this.pL4[1]"  id="green7"></div>
+                </div>
+
+            </nb-card-body>
+        </nb-card>
+    </div>
+
+    <div class="col-lg-10">
+        <nb-card>
+            <nb-card-header>
+                Live 3D View
+            </nb-card-header>
+            <nb-card-body>
+
+                <canvas #canvas (mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)"
+                        style="height: 100% !important; width: 100% !important;"></canvas>
+
+                <div class="row">
+                    <label for="inputName" class=" col-form-label">Time</label>
+                    <div class="col-2">
+                        <input type="text" name="name" class="form-control" id="logParserName"
+                               readonly [(ngModel)]="this.MainTime">
+                    </div>
+                </div>
+
+            </nb-card-body>
+
+        </nb-card>
+        <!--<div class="row">
+            <nb-card>
+                <nb-card-header>
+                </nb-card-header>
+                <nb-card-body>
+                    <div class="container" id="container2">
+                        <div class="light" id="red"></div>
+                        <div class="light light-visible" id="green"></div>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>-->
+    </div>
+</div>
+

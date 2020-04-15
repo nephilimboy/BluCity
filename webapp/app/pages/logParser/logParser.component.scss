@@ -1,0 +1,146 @@
+.json_container {
+  font-size: 13px;
+  line-height: 1.2;
+  font-family: monospace;
+  padding-left: 0;
+  margin-left: 20px;
+}
+.json_container,
+.json_container ul{
+  list-style: none !important;
+}
+.json_container ul{
+  padding: 0px !important;
+  padding-left: 20px !important;
+  margin: 0px !important;
+}
+
+.json_container li {
+  position: relative;
+  margin-top: 6px;
+}
+
+//.json_container > li  > .key,
+.json_container .array .key{
+  display: none;
+}
+
+.json_container .array .object .key{
+  display: inline;
+}
+
+.json_container li:after {
+  content: ",";
+}
+
+.json_container li:last-child:after {
+  content: "";
+}
+
+.json_container .null{
+  color: #999;
+}
+.json_container .string{
+  color: #4e9a06;
+}
+.json_container .number{
+  color: #a40000;
+}
+.json_container .boolean{
+  color: #c4a000;
+}
+.nb-theme-cosmic .json_container .key{
+  color: #00f9a6;;
+}
+.nb-theme-corporate .json_container .key{
+  color: #000000;;
+}
+.json_container .expanded{
+  cursor: pointer;
+}
+
+.json_container .expanded:before{
+  //content: "-";
+  //font-size: 16px;
+  //width: 13px;
+  //text-align: center;
+  //line-height: 13px;
+  //font-family: sans-serif;
+  //color: #933;
+  //position: absolute;
+  //left: -15px;
+  //top: 3px;
+  //margin-top: 10px;
+}
+
+.json_container .collapsed:before{
+  //content: "+";
+  //font-size: 14px;
+  //color: #000;
+  //top: 1px;
+  //margin-top: 10px;
+}
+
+.json_container li .collapsed ~ .close:before {
+  content: "... ";
+  color: #999;
+}
+
+.nb-theme-corporate .jsonClose{
+   font-weight: 700;
+   line-height: 1;
+   color: #000 !important;
+ }
+.nb-theme-corporate .jsonOpen{
+  font-weight: 700;
+  line-height: 1;
+  color: #000 !important;
+}
+
+
+.nb-theme-cosmic .jsonClose{
+   font-weight: 700;
+   line-height: 1;
+   color: #e7ff00 !important;
+ }
+.nb-theme-cosmic .jsonOpen{
+  font-weight: 700;
+  line-height: 1;
+  color: #e7ff00 !important;
+}
+
+.json_container .hidden ~ ul {
+  display: none;
+}
+
+
+.jsonAlias{
+  color: #ff00db !important;
+}
+
+// Div Container json parser class
+
+.nb-theme-corporate .json_viewer_div{
+  border: 2px solid #dadfe6;
+  border-radius: 1.5rem;
+}
+
+.nb-theme-cosmic .json_viewer_div{
+  border-radius: 1.5rem;
+  border: 2px solid #342e73;
+}
+.nb-theme-default .json_viewer_div{
+  border-radius: 1.5rem;
+  border: 2px solid #dadfe6;
+}
+
+@import '../../theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+@include nb-install-component() {
+  .solar-card nb-card-header {
+    border: none;
+    padding-bottom: 0;
+  }
+}

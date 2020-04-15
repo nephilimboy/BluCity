@@ -1,0 +1,141 @@
+<nb-card style="width: 1017px;height: 669px;">
+    <nb-card-header>Grapher Entity</nb-card-header>
+    <nb-card-body>
+
+        <div class="container">
+            <nb-card-body>
+
+                <div class="row">
+                    <label for="inputName" class="col-1 col-form-label">Name</label>
+                    <div class="col-5">
+                        <input type="text" class="form-control" id="name"
+                               placeholder="Entity Name">
+                    </div>
+                </div>
+                <hr/>
+
+
+                <div class="row">
+                    <div class="col-11">
+                        <nb-card>
+                            <nb-card-body>
+                                <div class="row">
+                                    <label for="LogParserName" class="col-1 col-form-label">Parser Name</label>
+                                    <div class="col-5">
+
+                                        <select class="form-control">
+                                            <!-- <ng-template ngFor let-logParser [ngForOf]="logParsers">
+                                                <option *ngFor="let LogParserCrudFormCustom of logParser.logParser_crudForm_customPattern" [ngValue]="LogParserCrudFormCustom.name">{{ LogParserCrudFormCustom.name }}</option>
+                                            </ng-template> -->
+                                            <option *ngFor="let logParser of logParsers" [ngValue]="logParser.name">{{ logParser.name }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" class="form-control" id="logParserName"
+                                               placeholder="Parser Topic Name">
+                                    </div>
+                                    <div class="col-3">
+                                        <button class="btn btn-success btn-demo" (click)="addNewOperator()">Add</button>
+                                    </div>
+
+                                </div>
+
+                            </nb-card-body>
+                        </nb-card>
+
+
+                        <div id="chart_container" #chart_container>
+                            <div class="flowchart-example-container" id="exampleDiv" #exampleDiv></div>
+                        </div>
+                    </div>
+
+                    <div class="col-1">
+                        <nb-card>
+                            <nb-card-body>
+                                <div class="row">
+                                    <a class="btn btn-danger btn-demo btn-xs"
+                                       style="margin-top: 5px;min-width: 100%;"><i class="far fa-trash-alt"
+                                                                                   style="color: #f1eefc;"></i></a>
+                                </div>
+
+                                <hr/>
+                                <div class="row">
+                                    <a class="btn btn-info btn-demo btn-xs" style="margin-top: 5px;min-width: 100%;"><i
+                                            class="fas fa-search-minus"
+                                            style="color: #f1eefc;"></i></a>
+                                </div>
+
+                                <div class="row">
+                                    <a class="btn btn-info btn-demo btn-xs" style="margin-top: 5px;min-width: 100%;"><i
+                                            class="fas fa-search-plus"
+                                            style="color: #f1eefc;"></i></a>
+                                </div>
+
+
+                                <hr/>
+                                <div class="row">
+                                    <a class="btn btn-primary btn-demo btn-xs" (click)="addTachometer()"
+                                       style="margin-top: 5px;min-width: 100%;"><i class="fas fa-tachometer-alt"
+                                                                                   style="color: #f1eefc;"></i></a>
+                                </div>
+                                <div class="row">
+                                    <a class="btn btn-primary btn-demo btn-xs" (click)="addLogViewer()"
+                                       style="margin-top: 5px;min-width: 100%;"><i class="fas fa-align-left"
+                                                                                   style="color: #f1eefc;"></i></a>
+                                </div>
+                                <div class="row">
+                                    <a class="btn btn-primary btn-demo btn-xs" (click)="addLink()"
+                                       style="margin-top: 5px;min-width: 100%;"><i class="fas fa-link"
+                                                                                   style="color: #f1eefc;"></i></a>
+                                </div>
+                                <div class="row">
+                                    <a class="btn btn-primary btn-demo btn-xs" (click)="addAlert()"
+                                       style="margin-top: 5px;min-width: 100%;"><i class="fas fa-exclamation-triangle"
+                                                                                   style="color: #f1eefc;"></i></a>
+                                </div>
+
+                                <br/>
+                                <hr/>
+
+                                <div class="row">
+                                    <a class="btn btn-secondary btn-demo btn-xs" style="margin-top: 5px;"><i
+                                            class="ion-plus-round"
+                                            style="color: #f1eefc;"></i></a>
+                                </div>
+                                <div class="row">
+                                    <a class="btn btn-secondary btn-demo btn-xs" style="margin-top: 5px;"><i
+                                            class="ion-plus-round"
+                                            style="color: #f1eefc;"></i></a>
+                                </div>
+
+
+                            </nb-card-body>
+                        </nb-card>
+                    </div>
+                </div>
+
+                <!-- <input type="button" value="add operator" (click)="addNewOperator()">
+                <input type="button" value="add operator2" (click)="addNewOperator2()">
+                <input type="button" value="delete" (click)="deleteOperationOrLink()">
+                <input type="button" value="load" (click)="load()">
+                <input type="button" value="get" (click)="get()">
+                <br/>
+                <textarea nbInput fullWidth shape="round" name="diagModel" [(ngModel)]="diagModel" placeholder="model"
+                          style="height: 300px; width: 500px"></textarea>
+                <br/>
+                -->
+
+            </nb-card-body>
+        </div>
+
+
+    </nb-card-body>
+    <nb-card-footer style="padding: 0 1.25rem 1.25rem 0;display: flex;flex-wrap: wrap;">
+        <div style="margin: 1.25rem 0 0 1.25rem;">
+            <button class="btn btn-demo btn-success " (click)="save()" >Save</button>
+        </div>
+        <div style="margin: 1.25rem 0 0 1.25rem;">
+            <button class="btn btn-demo btn-danger " (click)="dismiss()" >Cancel</button>
+        </div>
+    </nb-card-footer>
+</nb-card>

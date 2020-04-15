@@ -1,0 +1,398 @@
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #666;
+}
+
+#chart_container {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  background: repeating-linear-gradient(
+                  45deg,
+                  #eee,
+                  #eee 10px,
+                  #e5e5e5 10px,
+                  #e5e5e5 20px
+  );
+  border: 1px solid black;
+}
+
+#exampleDiv {
+  width: 2000px;
+  height: 2000px;
+  background: white;
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgb(237, 237, 237) 1px, transparent 1px), linear-gradient(rgb(237, 237, 237) 1px, transparent 1px);
+}
+
+.flowchart-example-container {
+  height: 200px;
+  border: 1px solid #BBB;
+  margin-bottom: 10px;
+}
+
+/* #exampleDiv {
+  width: 100%;
+  height: 2000px;
+  background: white;
+} */
+
+.draggable_operators_label {
+  margin-bottom: 5px;
+}
+
+.draggable_operators_divs {
+  margin-bottom: 20px;
+}
+
+.draggable_operator {
+  display: inline-block;
+  padding: 2px 5px 2px 5px;
+  border: 1px solid #ccc;
+  cursor: grab;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.flowchart-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.flowchart-links-layer, .flowchart-operators-layer, .flowchart-temporary-link-layer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.flowchart-operators-layer, .flowchart-temporary-link-layer {
+  pointer-events: none;
+}
+
+.flowchart-temporary-link-layer {
+  display: none;
+}
+
+
+
+.flowchart-link, .flowchart-operator {
+  cursor: default;
+}
+
+
+.flowchart-operator-connector {
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.flowchart-operator-connector-label {
+  font-size: small;
+}
+
+.flowchart-operator-inputs .flowchart-operator-connector-label {
+  margin-left: 14px;
+}
+
+.flowchart-operator-outputs .flowchart-operator-connector-label {
+  text-align: right;
+  margin-right: 5px;
+}
+
+.flowchart-operator-connector-arrow {
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid rgb(204, 204, 204);
+  position: absolute;
+  top: 0px;
+}
+
+.flowchart-operator-connector-small-arrow {
+  width: 0px;
+  height: 0px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid transparent; /*rgb(100, 100, 100);*/
+  position: absolute;
+  top: 5px;
+  pointer-events: none;
+}
+
+.flowchart-operator-connector:hover .flowchart-operator-connector-arrow {
+  border-left: 10px solid rgb(105, 255, 5);
+}
+
+.flowchart-operator-inputs .flowchart-operator-connector-arrow {
+  left: -1px;
+}
+
+.flowchart-operator-outputs .flowchart-operator-connector-arrow {
+  right: -10px;
+}
+
+.flowchart-operator-inputs .flowchart-operator-connector-small-arrow {
+  left: -1px;
+}
+
+.flowchart-operator-outputs .flowchart-operator-connector-small-arrow {
+  right: -7px;
+}
+
+.unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  /*
+    Introduced in IE 10.
+    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+  */
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+/* Default Operator */
+
+.flowchart-operator {
+  position: absolute;
+  width: 140px;
+  border: 1px solid #CCCCCC;
+  background: #FAFAFA;
+  pointer-events: initial;
+}
+
+.flowchart-operator:hover {
+  border-color: rgb(255, 238, 0) !important;
+}
+
+.flowchart-operator.selected {
+  /* border-color: #555; */
+  border: 5px solid black;
+}
+
+
+
+.flowchart-operator .flowchart-operator-title {
+  width: 100%;
+  padding: 5px;
+  font-weight: bold;
+  box-sizing: border-box;
+  border-bottom: 1px solid #DDDDDD;
+  /* background: #F0F0F0; */
+  height: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: move;
+
+
+  /* background-color: #2aa58f;
+  color: white; */
+}
+
+.flowchart-operator .flowchart-operator-inputs-outputs {
+  display: table;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.flowchart-operator .flowchart-operator-inputs, .flowchart-default-operator .flowchart-operator-outputs {
+  display: table-cell;
+  width: 50%;
+}
+
+
+/* .flowchart-link > path{
+    stroke: #2aa58f;
+} */
+
+
+
+
+.myTest{
+  background-color: #2a7ea5;
+  color: white;
+}
+
+.myTest2{
+  background-color: #4c0f8d;;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import '../../theme/styles/themes';
+@import '~@nebular/theme/components/card/card.component.theme';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+@include nb-install-component() {
+
+  nb-card-body {
+    display: flex;
+    align-items: center;
+  }
+
+  .action-groups-header {
+    flex-basis: 20%;
+
+    color: nb-theme(card-header-fg-heading);
+    font-family: nb-theme(card-header-font-family);
+    font-size: nb-theme(card-header-font-size);
+    font-weight: nb-theme(card-header-font-weight);
+  }
+
+  .nb-actions {
+    flex-basis: 80%;
+  }
+
+  @include media-breakpoint-down(sm) {
+    nb-card-body {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0.75rem;
+
+      .action-groups-header {
+        @include nb-ltr(margin, 0 0 0.5rem 0.25rem);
+        @include nb-rtl(margin, 0 0.25rem 0.5rem 0);
+      }
+    }
+
+    nb-action {
+      padding: 0 0.5rem;
+      /deep/ .control-icon {
+        font-size: 1.75rem;
+      }
+    }
+    nb-user /deep/ {
+      .user-container {
+        font-size: 0.875rem;
+      }
+      .user-picture {
+        height: 1.75rem;
+        width: 1.75rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+
+    nb-action {
+      padding: 0 0.375rem;
+      /deep/ .control-icon {
+        font-size: 1.5rem;
+      }
+    }
+    nb-user /deep/ {
+      .user-container {
+        font-size: 0.75rem;
+      }
+      .user-picture {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+    }
+    nb-card-body {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+div.tooltip {
+  position: fixed;
+  text-align: center;
+  width: 60px;
+  height: 28px;
+  padding: 2px;
+  font: 12px sans-serif;
+  color: #2b2d34;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+
+@import '../../theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+@import "~codemirror/lib/codemirror";
+@import "~codemirror/theme/material";
+
+
+@include nb-install-component() {
+  .solar-card nb-card-header {
+    border: none;
+    padding-bottom: 0;
+  }
+}
+
+
+
+.CodeMirror{
+  height: 500px;
+  margin-bottom: 5px;
+}
