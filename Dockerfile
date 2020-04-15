@@ -15,6 +15,4 @@ RUN npm install -g npm@latest
 RUN npm cache verify
 RUN npm install
 RUN npm install -g @angular/cli
-#EXPOSE 8000
-#EXPOSE 4200
 CMD ["/code/start.sh"]
