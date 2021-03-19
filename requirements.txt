@@ -1,7 +1,7 @@
 Django==2.2.4
 django-cors-headers==3.0.2
 django-filter==2.2.0
-djangorestframework==3.10.2
+djangorestframework==3.11.2
 jsonpickle==1.2
 Markdown==3.1.1
 numpy==1.18.2
